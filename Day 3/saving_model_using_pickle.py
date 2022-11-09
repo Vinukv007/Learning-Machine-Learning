@@ -11,9 +11,8 @@ import pandas as pd
 import numpy as np
 from sklearn import linear_model
 
-from google.colab import files
-files.upload()
 
+# opening filre and fitting them using linear regression
 df=pd.read_csv('homeprices.csv')
 df.head()
 
@@ -25,17 +24,23 @@ lreg.predict([[6000]])
 
 lreg.coef_
 
+# installing and loading pickle 
 pip install pickle
 
 import pickle
 
+#writing and reading as binary as pickle saves the model as binary.
 with open('lreg_pickle','wb') as f:
   pickle.dump(lreg,f)
 
+# loading the pickle file and loading the model to linreg.
 with open ('lreg_pickle','rb') as f:
   linreg=pickle.load(f)
 
 linreg.predict([[6000]])
+
+
+# Another way to save and use model. much more prefered and used.
 
 from sklearn.externals import joblib
 
