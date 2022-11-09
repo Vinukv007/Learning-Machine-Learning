@@ -58,7 +58,10 @@ linregjb
 
 linregjb.predict([[6000]])
 
+
 # or
+#Ease of loading a model.
+
 linregjb2=joblib.load('lreg_job')
 linregjb2
 
