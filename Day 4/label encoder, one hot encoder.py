@@ -14,25 +14,19 @@ from sklearn.linear_model import LinearRegression
 
 lreg=LinearRegression()
 
-files.upload()
-
 df=pd.read_csv('homeprices.csv')
 df.head()
 
+#creating dummy variables
 dummies=pd.get_dummies(df.town)
 dummies
 
 dfdum=pd.concat([df,dummies],axis=1)
 
-dfdum
-
+# dropping columns to reduce dimensionality curse
 dfdum.drop(['town','west windsor'],axis=1,inplace=True)
 
-dfdum
-
 x=dfdum.drop('price',axis=1)
-x.head()
-
 y=dfdum.price
 
 lreg.fit(x,y)
